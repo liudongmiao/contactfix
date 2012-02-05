@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim: set sw=4 ts=4: -->
+<resources>
+	<string name="app_name">联系人修复</string>
+	<string name="dealing">正在处理 %s ...</string>
+	<string name="applying">正在应用 %d 个联系人 ...</string>
+	<string name="completed">联系人拼音和电话号码修复完成。</string>
+</resources>

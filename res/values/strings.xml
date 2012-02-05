@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim: set sw=4 ts=4: -->
+<resources>
+	<string name="app_name">Contact Fix</string>
+	<string name="dealing">dealing %s ...</string>
+	<string name="applying">applying for %d contacts ...</string>
+	<string name="completed">The phonetic name and phone number should have been fixed.</string>
+</resources>
