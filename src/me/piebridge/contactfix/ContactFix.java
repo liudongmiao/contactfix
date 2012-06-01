@@ -34,6 +34,7 @@ import android.os.Handler;;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ProgressBar;
+import android.net.Uri;
 
 import me.piebridge.hanzitopinyin.HanziToPinyin;
 
@@ -110,6 +111,9 @@ public class ContactFix extends Activity
 					// get phonetic name if its specified
 					if (!cursor.isNull(3) && cursor.getString(3).length() > 0) {
 						phoneticName = cursor.getString(3);
+						if (phoneticName.equals(pinyinName)) {
+							continue;
+						}
 					}
 
 					// only for chinese
@@ -149,6 +153,14 @@ public class ContactFix extends Activity
 					}
 				}
 			}
+
+			// delete
+			Uri deleteUri = RawContacts.CONTENT_URI.buildUpon()
+				.appendQueryParameter(ContactsContract.CALLER_IS_SYNCADAPTER, "true")
+				.build();
+			ops.add(ContentProviderOperation.newDelete(deleteUri)
+					.withSelection(RawContacts.DELETED + "=?", new String[]{"1"})
+					.build());
 		} finally {
 			cursor.close();
 		}
